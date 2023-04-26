@@ -1,0 +1,15 @@
+// Installing Tailwind CSS bc they carry a lot of easy components
+npm install -D tailwindcss
+npx tailwindcss init
+
+// then, add contents into the empty array in the config.js file
+"./src/**/*.{js,jsx,ts,tsx}"
+
+// Finally, add in the following to the index.css file
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+npm install react-router-dom
+
