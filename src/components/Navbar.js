@@ -1,5 +1,6 @@
 import { children } from "react"
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
+import FlyoutMenu from "./FlyoutMenu"
 
 export default function Navbar() {
     return (
@@ -12,8 +13,12 @@ export default function Navbar() {
                 <CustomLink to="/Listings">Listings</CustomLink>
                 <CustomLink to="/Categories">Categories</CustomLink>
                 <CustomLink to="/Deals">Deals</CustomLink>
-                <CustomLink to="/Account">Account</CustomLink>
                 <CustomLink to="/Cart">Cart</CustomLink>
+                <li>
+                    <div className="relative">
+                        <FlyoutMenu />
+                    </div>
+                </li>
             </ul>
         </nav>
     )

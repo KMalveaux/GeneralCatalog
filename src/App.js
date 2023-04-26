@@ -1,5 +1,6 @@
 // Removed logo import
 import './App.css';
+import FlyoutMenu from './components/FlyoutMenu';
 import Navbar from './components/Navbar';
 import Account from './components/pages/Account';
 import Cart from './components/pages/Cart';
@@ -7,6 +8,8 @@ import Categories from './components/pages/Categories';
 import Deals from './components/pages/Deals';
 import Homepage from './components/pages/Homepage';
 import Listings from './components/pages/Listings';
+import Login from './components/pages/Login';
+import Signup from './components/pages/Signup';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -21,6 +24,8 @@ function App() {
           <Route path='/Listings' element={<Listings />} />
           <Route path='/Deals' element={<Deals />} />
           <Route path='/Categories' element={<Categories />} />
+          <Route path='/Login' element={<Login />} /> 
+          <Route path='/Signup' element={<Signup />} /> 
         </Routes>
       </div>
     </>

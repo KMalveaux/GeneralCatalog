@@ -16,20 +16,25 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
-  padding: 0 1rem;
+  gap: 4rem;
+  padding: 0 2rem;
 }
 
 .site-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  padding: 0 2rem;
+  gap: 1rem;
 }
 
 .nav ul {
   padding: 0;
   margin: 0;
   list-style: none;
-  display: flexbox;
-  gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  flex-grow: 1;
 }
 
 .nav a {
@@ -46,5 +51,11 @@ body {
 }
 
 .nav li.hover {
-  background-color: #777;
+  background-color: #5648d2;
+}
+
+.flyout-menu {
+  position: absolute;
+  background-color: #333;
+  border: 1px solid;
 }
