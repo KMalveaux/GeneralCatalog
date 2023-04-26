@@ -1,0 +1,8 @@
+.sidescrolling-box{
+    height: 60vh;
+    border-style: solid;
+    border-width: 1px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}

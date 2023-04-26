@@ -1,0 +1,25 @@
+.productContainer {
+    width: 20vw;
+    height: 55vh;
+    margin: 5px;
+    border-style: solid;
+    border-width: 5px;
+    flex-shrink: 0;
+    border-radius: 30px
+}
+
+.name{
+    position: relative;
+    font-size: 30px;
+    top: 70%;
+    text-align: left;
+    left: 5%
+}
+
+.price{
+    position: relative;
+    font-size: 30px;
+    top: 70%;
+    text-align: right;
+    right: 5%
+}
