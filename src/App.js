@@ -10,6 +10,7 @@ import Homepage from './components/pages/Homepage';
 import Listings from './components/pages/Listings';
 import Login from './components/pages/Login';
 import Signup from './components/pages/Signup';
+import ListingCreation from './components/pages/ListingCreation';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path='/Categories' element={<Categories />} />
           <Route path='/Login' element={<Login />} /> 
           <Route path='/Signup' element={<Signup />} /> 
+          <Route path='/ListingCreation' element={<ListingCreation />} />
         </Routes>
       </div>
     </>

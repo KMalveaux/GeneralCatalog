@@ -14,6 +14,8 @@ export default function Navbar() {
                 <CustomLink to="/Categories">Categories</CustomLink>
                 <CustomLink to="/Deals">Deals</CustomLink>
                 <CustomLink to="/Cart">Cart</CustomLink>
+                <CustomLink to="/ListingCreation">Create Item</CustomLink>
+
                 <li>
                     <div className="relative">
                         <FlyoutMenu />
