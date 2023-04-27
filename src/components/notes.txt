@@ -13,3 +13,8 @@ npx tailwindcss init
 
 npm install react-router-dom
 
+// Slider Carousel
+npm install react-multi-carousel --save
+
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';

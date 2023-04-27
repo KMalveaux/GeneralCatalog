@@ -1,18 +1,21 @@
-import ProductPost from "../elements/ProductPost"
+import Multicarousel from "../Multicarousel";
 import "../../css/HomePage.css";
 
 export default function Homepage() {
     return(
-        <div style={{height: "100%", width: "100%"}}>
-            <h1>Home Page</h1>
-            <div className="sidescrolling-box">
-                <ProductPost itemName="Broom" itemPrice="$599.99"/>
-                <ProductPost itemName="Wand" itemPrice="$10.99"/>
-                <ProductPost itemName="Flask" itemPrice="$9.99"/>
-                <ProductPost itemName="Cats" itemPrice="$2.50"/>
-
-            </div>
-            
-        </div>
+        <>
+            <h1 className="homepage-carousel-headers">New Listings</h1>
+                <div className="multiCarousel-homepage">
+                    <Multicarousel />
+                </div>
+            <h2 className="homepage-carousel-headers">Categories</h2>
+                <div className="multiCarousel-homepage">
+                    <Multicarousel />
+                </div>
+            <h3 className="homepage-carousel-headers">Deals</h3>
+                <div className="multiCarousel-homepage">
+                    <Multicarousel />
+                </div>
+        </>
     );
 }

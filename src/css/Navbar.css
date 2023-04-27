@@ -11,7 +11,7 @@ body {
 }
 
 .nav {
-  background-color: #333;
+  background-color: #6d649c;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -24,6 +24,7 @@ body {
   font-size: 2.5rem;
   padding: 0 2rem;
   gap: 1rem;
+  font-family: cursive;
 }
 
 .nav ul {
@@ -35,6 +36,8 @@ body {
   align-items: center;
   gap: 4rem;
   flex-grow: 1;
+  font-family: cursive;
+  font-size: larger;
 }
 
 .nav a {
