@@ -1,5 +1,5 @@
 // Removed logo import
-import './App.css';
+import './css/App.css';
 import FlyoutMenu from './components/FlyoutMenu';
 import Navbar from './components/Navbar';
 import Account from './components/pages/Account';
