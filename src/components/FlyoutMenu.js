@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "../css/FlyoutMenu.css"
 import { Link } from 'react-router-dom';
 
 const FlyoutMenu = () => {
@@ -13,10 +14,10 @@ const FlyoutMenu = () => {
           <button
             id="flyoutMenuOffsetButton"
             onClick={toggleFlyoutMenu}
-            className="text-white hover focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center0"
+            className="text-white hover focus:ring-4 focus:outline-none  font-sm rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center0"
             type="button"
           >
-            Account
+            <h1>Account</h1>
             <svg
               className="w-4 h-4 ml-2"
               aria-hidden="true"
@@ -38,7 +39,7 @@ const FlyoutMenu = () => {
               id="flyoutOffset"
               className={`z-10 ${showFlyoutMenu ? '' : 'hidden'} absolute mt-1 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700`}
             >
-                <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+                <ul className="flyoutAccountButton">
                     <li>
                         <Link
                             to="/Login" // Update this path

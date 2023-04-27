@@ -1,6 +1,6 @@
 // Removed logo import
 import './css/App.css';
-import FlyoutMenu from './components/FlyoutMenu';
+// import FlyoutMenu from './components/FlyoutMenu';
 import Navbar from './components/Navbar';
 import Account from './components/pages/Account';
 import Cart from './components/pages/Cart';
@@ -11,6 +11,7 @@ import Listings from './components/pages/Listings';
 import Login from './components/pages/Login';
 import Signup from './components/pages/Signup';
 import ListingCreation from './components/pages/ListingCreation';
+import Multicarousel from './components/Multicarousel';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
