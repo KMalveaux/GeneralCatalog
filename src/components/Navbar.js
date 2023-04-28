@@ -1,4 +1,4 @@
-import { children } from "react"
+// import { children } from "react"
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
 import FlyoutMenu from "./FlyoutMenu"
 
@@ -16,7 +16,7 @@ export default function Navbar() {
           <CustomLink to="/ListingCreation">List an Item</CustomLink>
         </ul>
         <ul className="nav-right">
-          <li>
+          <li className="navAccount">
             <div className="relative">
               <FlyoutMenu />
             </div>

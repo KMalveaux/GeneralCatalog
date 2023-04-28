@@ -14,7 +14,7 @@ const FlyoutMenu = () => {
           <button
             id="flyoutMenuOffsetButton"
             onClick={toggleFlyoutMenu}
-            className="text-white hover focus:ring-4 focus:outline-none  font-sm rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center0"
+            className="accountNavButton text-white hover focus:ring-4 focus:outline-none  rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center0"
             type="button"
           >
             Account

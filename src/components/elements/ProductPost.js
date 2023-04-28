@@ -1,4 +1,4 @@
-import "./ProductPost.css";
+import "../../css/ProductPost.css";
 
 function ProductPost(props){
     function handleClick() {
