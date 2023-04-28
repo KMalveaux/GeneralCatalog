@@ -1,5 +1,6 @@
 .accountNavButton {
-  text-size-adjust: larger;
+  font-size: inherit;
+  font-weight: inherit;
 }
 
 .flyoutAccountButton {
