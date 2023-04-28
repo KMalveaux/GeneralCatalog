@@ -11,10 +11,10 @@ import Listings from './components/pages/Listings';
 import Login from './components/pages/Login';
 import Signup from './components/pages/Signup';
 import ListingCreation from './components/pages/ListingCreation';
-import "./components/elements/MockCart.css";
-import "./components/elements/MockListings.css";
+import "./components/elements/MockCart/MockCart.css";
+import "./components/elements/MockListings/MockListings.css";
 import { Route, Routes } from 'react-router-dom';
-import { ShopContextProvider } from './components/elements/mock-shop-context';
+import { ShopContextProvider } from './components/elements/MockListings/mock-shop-context';
 
 function App() {
   return (

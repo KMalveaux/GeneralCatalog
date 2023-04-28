@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { ShopContext } from "./mock-shop-context";
-import { ITEMS } from "./MockListings"
+import { ShopContext } from "../MockListings/mock-shop-context";
+import { ITEMS } from "../MockListings"
 import { CartItem } from "./mock-cart-item";
 import { useNavigate } from "react-router-dom";
 

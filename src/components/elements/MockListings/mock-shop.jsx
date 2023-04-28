@@ -1,5 +1,5 @@
 import React from "react";
-import { ITEMS } from "./MockListings"
+import { ITEMS } from "../MockListings"
 import { MockItems } from "./mock-listings";
 import "./MockListings.css";
 
