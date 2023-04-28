@@ -18,3 +18,7 @@ npm install react-multi-carousel --save
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+
+
+// Icons
+npm install --save phosphor-react

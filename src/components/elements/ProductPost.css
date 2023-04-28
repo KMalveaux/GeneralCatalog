@@ -1,26 +1,52 @@
 .productContainer {
   width: 20vw;
   height: 55vh;
-  margin: 5px;
+  margin: 0.5rem;
   border-style: solid;
-  border-width: 5px;
+  border-width: 2px;
   flex-shrink: 0;
-  border-radius: 30px;
-  padding: 0.5rem;
+  border-radius: 25px;
+  padding: 0.1rem;
+  position: relative;
 }
 
 .name {
   position: relative;
   font-size: 30px;
-  top: 70%;
+  font-family: cursive;
+  top: 75%;
   text-align: left;
   left: 5%;
+  position: absolute;
 }
 
 .price {
   position: relative;
-  font-size: 30px;
-  top: 70%;
-  text-align: right;
-  right: 5%;
+  font-size: 20px;
+  top: 83%;
+  text-align: left;
+  left: 7.5%;
+}
+
+.addToCartButton {
+  background-color: #d27685;
+  border: none;
+  color: white;
+  font-family: cursive;
+  font-size: larger;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4rem;
+  margin-top: 20.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 18px;
+  position: absolute;
+}
+
+.addToCartButton:hover {
+  background-color: #f68a9c;
 }
