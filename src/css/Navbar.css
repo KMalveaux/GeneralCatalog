@@ -26,6 +26,13 @@ body {
   justify-content: flex-start;
   display: flex;
   margin-left: 0.5rem;
+  align-items: center;
+}
+
+.wizard-logo {
+  margin-right: 2rem;
+  height: 60px;
+  display: flex;
 }
 
 .nav-center,

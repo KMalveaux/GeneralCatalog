@@ -113,10 +113,8 @@ function ListingCreation() {
               <p>{listing.CATEGORY}</p>
               <p>{listing.DATE_LISTED}</p>
               <img
-                src={require(`C:\Users\max\Documents\GitHub\wizardcatalog\src\components\images${getImage(
-                  listing.IMAGE.replace(/\\/g, "/")
-                )}`)}
-                alt="PICTURE HERE"
+                src={require(`../images` + getImage(listing.IMAGE.replace(/\\/g, "/")))}
+                alt="PIC HERE"
               />
               <p>{`${listing.IMAGE.replace(/\\/g, "/")}`}</p>
             </li>
