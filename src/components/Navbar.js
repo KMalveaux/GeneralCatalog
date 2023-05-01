@@ -16,6 +16,7 @@ export default function Navbar() {
           <CustomLink to="/Categories">Categories</CustomLink>
           {/* <CustomLink to="/Deals">Deals</CustomLink> */}
           <CustomLink to="/ListingCreation">List an Item</CustomLink>
+          <CustomLink to="/ProductPage">Product Page Testing</CustomLink>
         </ul>
         <ul className="nav-right">
           <li className="navAccount">

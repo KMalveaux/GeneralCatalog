@@ -15,6 +15,7 @@ import "./components/elements/MockCart/MockCart.css";
 import "./components/elements/MockListings/MockListings.css";
 import { Route, Routes } from 'react-router-dom';
 import { ShopContextProvider } from './components/elements/MockListings/mock-shop-context';
+import ProductPage from './components/pages/ProductPage';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path='/Login' element={<Login />} /> 
           <Route path='/Signup' element={<Signup />} /> 
           <Route path='/ListingCreation' element={<ListingCreation />} />
+          <Route path='/ProductPage' element={<ProductPage />} />
         </Routes>
       </div>
     </ShopContextProvider>
