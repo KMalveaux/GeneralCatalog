@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import Account from './components/pages/Account';
 import Cart from './components/pages/CartPage';
 import Categories from './components/pages/Categories';
-import Deals from './components/pages/Deals';
+// import Deals from './components/pages/Deals';
 import Homepage from './components/pages/Homepage';
 import Listings from './components/pages/Listings';
 import Login from './components/pages/Login';
@@ -26,7 +26,7 @@ function App() {
           <Route path='/Account' element={<Account />} />
           <Route path='/Cart' element={<Cart />} />
           <Route path='/Listings' element={<Listings />} />
-          <Route path='/Deals' element={<Deals />} />
+          {/* <Route path='/Deals' element={<Deals />} /> */}
           <Route path='/Categories' element={<Categories />} />
           <Route path='/Login' element={<Login />} /> 
           <Route path='/Signup' element={<Signup />} /> 

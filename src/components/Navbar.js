@@ -12,7 +12,7 @@ export default function Navbar() {
         <ul className="nav-center">
           <CustomLink to="/Listings">Listings</CustomLink>
           <CustomLink to="/Categories">Categories</CustomLink>
-          <CustomLink to="/Deals">Deals</CustomLink>
+          {/* <CustomLink to="/Deals">Deals</CustomLink> */}
           <CustomLink to="/ListingCreation">List an Item</CustomLink>
         </ul>
         <ul className="nav-right">
