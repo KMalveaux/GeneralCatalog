@@ -1,5 +1,5 @@
-import images1 from "../images/1.jpeg";
-import images2 from "../images/2.png";
+import cauldronPic from "../images/1.jpeg";
+import macbookPic from "../images/2.png";
 
 export const ITEMS = [
   {
@@ -8,7 +8,7 @@ export const ITEMS = [
     itemPrice: 349.99,
     itemCategory: "Cauldrons",
     itemDescription: "Description",
-    itemsImage: images1,
+    itemsImage: cauldronPic,
   },
   {
     id: 2,
@@ -16,6 +16,7 @@ export const ITEMS = [
     itemPrice: 1999.0,
     itemCategory: "Cauldrons",
     itemDescription: "Description",
-    itemImage: images2,
+    itemImage: macbookPic,
   },
+
 ];

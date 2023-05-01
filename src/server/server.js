@@ -14,7 +14,7 @@ app.use(express.json());
 // Configure multer to handle file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "D:/LocalDevApps/wizardshop/src/components/images"); // set the destination folder
+    cb(null, `../images`); // set the destination folder
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname); // keep the original filename

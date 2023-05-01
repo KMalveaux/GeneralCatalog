@@ -1,6 +1,7 @@
 // import { children } from "react"
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
 import FlyoutMenu from "./FlyoutMenu"
+import wizardLogo from './images/wizardLogo.png';
 
 export default function Navbar() {
     return (
@@ -8,6 +9,7 @@ export default function Navbar() {
         {/* Link to essentially replaces the anchor tags and acts as a router instead of the href */}
         <Link to="/" class="site-title">
           Wizard Shop
+          <img src={wizardLogo} alt="Wizard Logo" className="wizard-logo" />
         </Link>
         <ul className="nav-center">
           <CustomLink to="/Listings">Listings</CustomLink>
