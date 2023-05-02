@@ -1,14 +1,10 @@
-import React, { useEffect, useState, useContext } from "react";
-import { ITEMS } from "../MockListings";
-import { MockItems } from "./mock-listings";
+import React, { useEffect, useState } from "react";
 import "./MockListings.css";
 import axios from "axios";
-import { ShopContext } from "./mock-shop-context";
 import Item from "../item";
 
 export const Shop = () => {
   const [listings, setListings] = useState([]);
-  const { addToCart, cartItems } = useContext(ShopContext);
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -24,11 +20,6 @@ export const Shop = () => {
     fetchListings();
   }, []);
 
-  const getImage = (path) => {
-    console.log(path.split("/").slice(-1));
-    return path.split("/").slice(-1);
-  };
-
   return (
     <div className="shop">
       <div className="shopTitle">
@@ -37,11 +28,15 @@ export const Shop = () => {
 
       <div className="listingsPage">
         {listings.map((listing) => (
-          <div className="individualListing">
+          <div
+            className="individualListing"
+            onClick={() => console.log(`"You clicked on ${listing.rowid}"`)}
+          >
             <Item
-              id={listing.ID}
+              id={listing.rowid}
               itemName={listing.PRODUCT_NAME}
               itemPrice={listing.PRICE}
+              itemDescription={listing.DESCRIPTION}
               itemImage={listing.IMAGE}
             />
 
@@ -59,12 +54,6 @@ export const Shop = () => {
               Add To Cart
             </button> */}
           </div>
-        ))}
-      </div>
-
-      <div className="mockItems">
-        {ITEMS.map((mockItem) => (
-          <MockItems data={mockItem} />
         ))}
       </div>
     </div>

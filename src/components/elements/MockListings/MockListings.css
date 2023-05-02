@@ -73,11 +73,39 @@
 }
 
 .itemProp {
-  width: 10vw;
+  width: 20vw;
+  height: 60vh;
   padding: 10px;
   border-style: solid;
   border-radius: 20px;
   border-width: 3px;
+}
+
+.itemImage {
+  position: relative;
+  left: 10%;
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 25px;
+}
+
+.item-name{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-top: 35px;
+  font-size: large;
+  font-weight: 400;
+}
+
+.item-price {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-top: 25px;
+  font-size: large;
+  font-weight: 600;
+
 }
 
 .listingsPage {
