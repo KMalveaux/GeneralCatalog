@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { ShopContext } from "./shop-context";
 import Item from "./Item";
-import "./MockListings.css";
+import "./ItemShop.css";
 import axios from "axios";
 
 export const Shop = () => {

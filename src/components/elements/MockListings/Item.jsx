@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { ShopContext } from "./shop-context";
-import { ITEMS } from "../MockListings"
 
 
 export const Item = (props) => {

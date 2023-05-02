@@ -12,7 +12,7 @@ import Login from './components/pages/Login';
 import Signup from './components/pages/Signup';
 import ListingCreation from './components/pages/ListingCreation';
 import "./components/elements/MockCart/MockCart.css";
-import "./components/elements/MockListings/MockListings.css";
+import "./components/elements/MockListings/ItemShop.css";
 import { Route, Routes } from 'react-router-dom';
 import { ShopContextProvider } from './components/elements/MockListings/shop-context';
 import ProductPage from './components/pages/ProductPage';
