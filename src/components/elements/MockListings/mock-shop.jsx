@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { ITEMS } from "../MockListings";
 import { MockItems } from "./mock-listings";
 import "./MockListings.css";
 import axios from "axios";
+import { ShopContext } from "./mock-shop-context";
 
 export const Shop = () => {
   const [listings, setListings] = useState([]);
+  const { addToCart, cartItems } = useContext(ShopContext);
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -32,20 +34,24 @@ export const Shop = () => {
         <h1>Wizard Shop Listings</h1>
       </div>
 
-      <div>
-        <ul>
-          {listings.map((listing) => (
-            <li key={listing.id}>
-              <h2>{listing.PRODUCT_NAME}</h2>
-              <img
-                src={require(`../../images/` +
-                  getImage(listing.IMAGE.replace(/\\/g, "/")))}
-                alt="PIC HERE"
-              />
-              <p>{listing.PRICE}</p>
-            </li>
-          ))}
-        </ul>
+      <div className="listingsPage">
+        {listings.map((listing) => (
+          <div className="individualListing">
+            <h2>{listing.PRODUCT_NAME}</h2>
+            <img
+              src={require(`../../images/` +
+                getImage(listing.IMAGE.replace(/\\/g, "/")))}
+              alt="PIC HERE"
+            />
+            <p>{listing.PRICE}</p>
+            <button
+              className="addToCartBttn"
+              onClick={() => addToCart(listing.id)}
+            >
+              Add To Cart
+            </button>
+          </div>
+        ))}
       </div>
 
       <div className="mockItems">

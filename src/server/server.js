@@ -70,6 +70,18 @@ app.get("/SelectListings", (req, res) => {
   });
 });
 
+app.get("/GetCategories", (req, res) => {
+  db.all("SELECT DISTINCT CATEGORY FROM Listings", (err, rows) => {
+    if (err) {
+      console.error(err.message);
+      res.status(500).send("Internal server error");
+    } else {
+      const categories = rows.map((row) => row.CATEGORY);
+      res.json(categories);
+    }
+  });
+});
+
 app.get("/SelectListingsCategories", (req, res) => {
   db.all(
     "SELECT FROM Listings WHERE CATEGORY = " + req.body.category,

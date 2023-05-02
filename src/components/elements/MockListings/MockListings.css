@@ -71,3 +71,21 @@
   color: white;
   cursor: pointer;
 }
+
+
+
+
+.listingsPage {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90vw;
+  height: 100%;
+  border-style: solid;
+  border-color: red;
+  border-width: 10px;
+}
+
+.individualListing {
+  padding: 10px;
+  
+}
