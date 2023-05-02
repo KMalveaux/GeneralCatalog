@@ -30,12 +30,12 @@ function ListingCreation() {
     formData.append("description", itemDescription);
     formData.append("image", selectedFile);
 
-    // axios
-    //   .get("http://localhost:5000/DeleteListings")
-    //   .then((res) => {
-    //     console.log(res.data);
-    //   })
-    //   .catch((err) => console.error(err));
+    axios
+      .get("http://localhost:5000/DeleteListings")
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.error(err));
 
     axios
       .post("http://localhost:5000/CreateListing", formData)

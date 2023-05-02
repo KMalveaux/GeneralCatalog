@@ -72,8 +72,13 @@
   cursor: pointer;
 }
 
-
-
+.itemProp {
+  width: 10vw;
+  padding: 10px;
+  border-style: solid;
+  border-radius: 20px;
+  border-width: 3px;
+}
 
 .listingsPage {
   display: flex;

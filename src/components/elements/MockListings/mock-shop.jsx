@@ -4,6 +4,7 @@ import { MockItems } from "./mock-listings";
 import "./MockListings.css";
 import axios from "axios";
 import { ShopContext } from "./mock-shop-context";
+import Item from "../item";
 
 export const Shop = () => {
   const [listings, setListings] = useState([]);
@@ -37,7 +38,14 @@ export const Shop = () => {
       <div className="listingsPage">
         {listings.map((listing) => (
           <div className="individualListing">
-            <h2>{listing.PRODUCT_NAME}</h2>
+            <Item
+              id={listing.ID}
+              itemName={listing.PRODUCT_NAME}
+              itemPrice={listing.PRICE}
+              itemImage={listing.IMAGE}
+            />
+
+            {/* <h2>{listing.PRODUCT_NAME}</h2>
             <img
               src={require(`../../images/` +
                 getImage(listing.IMAGE.replace(/\\/g, "/")))}
@@ -49,7 +57,7 @@ export const Shop = () => {
               onClick={() => addToCart(listing.id)}
             >
               Add To Cart
-            </button>
+            </button> */}
           </div>
         ))}
       </div>
