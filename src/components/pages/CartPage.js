@@ -1,4 +1,4 @@
-import { Cart } from "../elements/MockCart/mock-cart"
+import { Cart } from "../elements/ShoppingCart/cart"
 
 export default function CartPage() {
   return <Cart />;

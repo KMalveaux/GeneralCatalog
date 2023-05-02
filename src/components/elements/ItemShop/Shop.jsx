@@ -1,11 +1,14 @@
 import React, { useEffect, useState, useContext } from "react";
-import { ShopContext } from "./shop-context";
-import Item from "./Item";
-import "./ItemShop.css";
 import axios from "axios";
+import { ITEMS } from "../MockListings";
+import { MockItems } from "./mock-listings";
+import "./ItemShop.css";
+import { ShopContext } from "./shop-context";
+import Item from "../item";
 
 export const Shop = () => {
   const [listings, setListings] = useState([]);
+  const { addToCart, cartItems } = useContext(ShopContext);
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -21,34 +24,34 @@ export const Shop = () => {
     fetchListings();
   }, []);
 
-  const getImage = async (path) => {
-    const imgName = path.split("/").slice(-1);
-    const imgPath = `../images/${imgName}`;
-    const module = await import(imgPath);
-    return module.default;
+  const getImage = (path) => {
+    console.log(path.split("/").slice(-1));
+    return path.split("/").slice(-1);
   };
-
-  const { addToCart } = useContext(ShopContext);
 
   return (
     <div className="shop">
       <div className="shopTitle">
         <h1>Wizard Shop Listings</h1>
       </div>
-      <div className="items">
-        {listings.map(async (listing) => {
-          const itemImage = await getImage(listing.IMAGE.replace(/\\/g, "/"));
-          return (
+
+      <div className="listingsPage">
+        {listings.map((listing) => (
+          <div className="individualListing" key={listing.ID}>
             <Item
-              key={listing.id}
-              id={listing.id}
+              id={listing.ID}
               itemName={listing.PRODUCT_NAME}
               itemPrice={listing.PRICE}
-              itemImage={itemImage}
-              addToCart={addToCart}
+              itemImage={listing.IMAGE}
             />
-          );
-        })}
+          </div>
+        ))}
+      </div>
+
+      <div className="mockItems">
+        {ITEMS.map((mockItem) => (
+          <MockItems key={mockItem.id} data={mockItem} />
+        ))}
       </div>
     </div>
   );

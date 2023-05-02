@@ -83,5 +83,3 @@ export const ITEMS = [
   },
 
 ];
-
-export default ITEMS;

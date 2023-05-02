@@ -1,15 +1,14 @@
 import React, { useContext } from "react";
 import { ShopContext } from "./shop-context";
 
-
-export const Item = (props) => {
-  const { id, itemName, itemPrice, itemImage } = props;
+export const MockItems = (props) => {
+  const { id, itemName, itemPrice, itemImage } = props.data;
   const { addToCart, cartItems } = useContext(ShopContext);
 
   const cartItemCount = cartItems[id];
 
   return (
-    <div className="itemProp">
+    <div className="mockItem">
       <img src={itemImage} alt={itemName} />
       <div className="description">
         <p className="item-name">
@@ -24,4 +23,4 @@ export const Item = (props) => {
   );
 };
 
-export default Item;
+

@@ -1,4 +1,4 @@
-.shop .shopTitle {
+.shopTitle {
   font-weight: bolder;
   font-size: xxx-large;
   font-family: cursive;
@@ -7,12 +7,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-left: 14rem; /* Added a margin to push the label over the center of page*/
   align-items: center;
   text-align: center;
 }
-
-/* Shop.jsx */
-.items {
+.mockItems {
   width: 100%;
   height: auto;
   display: grid;
@@ -20,7 +19,7 @@
   place-items: center;
 }
 
-.itemProp {
+.mockItem {
   border-radius: 15px;
   width: 250px;
   height: 350px;
@@ -31,18 +30,18 @@
   align-items: center;
 }
 
-.itemProp img {
+.mockItem img {
   width: 400px;
 }
 
-.itemProp .description {
+.mockItem .description {
   text-align: center;
   font-family: cursive;
   font-size: x-large;
   margin-top: 2rem;
 }
 
-.itemProp .description .item-price {
+.mockItem .description .item-price {
   text-align: center;
   font-family: cursive;
   font-size: x-large;
@@ -72,4 +71,26 @@
   background-color: #f68a9c;
   color: white;
   cursor: pointer;
+}
+
+.itemProp {
+  width: 10vw;
+  padding: 10px;
+  border-style: solid;
+  border-radius: 20px;
+  border-width: 3px;
+}
+
+.listingsPage {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90vw;
+  height: 100%;
+  border-style: solid;
+  border-color: #d27685;
+  border-width: 2px;
+}
+
+.individualListing {
+  padding: 10px;
 }

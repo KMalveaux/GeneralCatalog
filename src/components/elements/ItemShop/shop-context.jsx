@@ -1,13 +1,11 @@
 import { createContext, useState } from "react";
-// import { ITEMS } from "../MockListings";
-import { Item } from "./Item";
-
+import { ITEMS } from "../MockListings";
 
 export const ShopContext = createContext(null);
 
 const getDefaultCart = () => {
   let cart = {};
-  for (let i = 1; i < Item.length + 1; i++) {
+  for (let i = 1; i < ITEMS.length + 1; i++) {
     cart[i] = 0;
   }
   return cart;
@@ -20,7 +18,7 @@ export const ShopContextProvider = (props) => {
     let totalAmount = 0;
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
-        let itemInfo = Item.find((Item) => Item.id === Number(item));
+        let itemInfo = ITEMS.find((mockItem) => mockItem.id === Number(item));
         totalAmount += cartItems[item] * itemInfo.price;
       }
     }

@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { ShopContext } from "../MockListings/shop-context";
+import { ShopContext } from "../ItemShop/shop-context";
 import { ITEMS } from "../MockListings"
-import { CartItem } from "./mock-cart-item";
+import { CartItem } from "./cartItem";
 import { useNavigate } from "react-router-dom";
-import "./MockCart.css";
+import "./Cart.css";
 
 export const Cart = () => {
   const { cartItems, getTotalCartAmount, checkout } = useContext(ShopContext);
@@ -11,18 +11,17 @@ export const Cart = () => {
 
   const navigate = useNavigate();
 
+  const nonEmptyItems = ITEMS.filter((mockItem) => cartItems[mockItem.id] !== 0);
+
   return (
     <div className="cart">
       <div>
         <h1>Your Cart Items</h1>
       </div>
       <div className="cart">
-        {ITEMS.map((listing) => {
-          if (cartItems[listing.id] !== 0) {
-            return <CartItem data={listing} />;
-          }
-          return null;
-        })}
+        {nonEmptyItems.map((mockItem) => (
+          <CartItem key={mockItem.id} data={mockItem} />
+        ))}
       </div>
 
       {totalAmount > 0 ? (

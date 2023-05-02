@@ -1,4 +1,4 @@
-import { Shop } from "../elements/MockListings/Shop";
+import { Shop } from "../elements/ItemShop/Shop";
 
 export default function Listings() {
     return <Shop />

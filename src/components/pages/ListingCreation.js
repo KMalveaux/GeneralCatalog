@@ -30,12 +30,12 @@ function ListingCreation() {
     formData.append("description", itemDescription);
     formData.append("image", selectedFile);
 
-    // axios
-    //   .get("http://localhost:5000/DeleteListings")
-    //   .then((res) => {
-    //     console.log(res.data);
-    //   })
-    //   .catch((err) => console.error(err));
+    axios
+      .get("http://localhost:5000/DeleteListings")
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.error(err));
 
     axios
       .post("http://localhost:5000/CreateListing", formData)
@@ -95,14 +95,14 @@ function ListingCreation() {
           />
         </div>
       </div>
-      <div style={{ display: "flex", flexDirection: "row" }}>
+      <div className="inputBox-labels" style={{ display: "flex", flexDirection: "row" }}>
         <TextInput label="Item Name " ref={itemNameInputRef} />
         <TextInput label="Price " ref={itemPriceInputRef} />
         <TextInput label="Category " ref={itemCategoryInputRef} />
         <TextInput label="Description " ref={itemDescriptionInputRef} />
-        <button onClick={HandleCreateListing}>Create Listing</button>
+        <button className="create-listing-bttn" onClick={HandleCreateListing}>Create Listing</button>
       </div>
-      <div>
+      <div className="create-listing-label">
         <h1>Listings</h1>
         <ul>
           {listings.map((listing) => (
@@ -126,4 +126,4 @@ function ListingCreation() {
   );
 }
 
-export default ListingCreation;
+export default ListingCreation

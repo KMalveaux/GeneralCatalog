@@ -1,11 +1,9 @@
-const { ITEMS } = require("./path/to/MockListings");
-
 const express = require("express");
 const sqlite3 = require("sqlite3").verbose();
 const cors = require("cors");
 const multer = require("multer");
-const fs = require("fs");
-const path = require("path");
+// const fs = require("fs");
+// const path = require("path");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -16,7 +14,7 @@ app.use(express.json());
 // Configure multer to handle file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, `D:/LocalDevApps/wizardshop/src/components/images`); // set the destination folder
+    cb(null, `../images/`); // set the destination folder
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname); // keep the original filename
@@ -25,26 +23,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 const db = new sqlite3.Database("../database/WizardCatalog.db");
-
-const insertMockData = () => {
-  ITEMS.forEach((item) => {
-    const { itemName, itemPrice, itemCategory, itemDescription, itemImage } = item;
-    const dateListed = Date.now();
-    const query =
-      "INSERT INTO Listings (PRODUCT_NAME, PRICE, CATEGORY, DESCRIPTION, DATE_LISTED, IMAGE) VALUES (?, ?, ?, ?, ?, ?)";
-    db.run(
-      query,
-      [itemName, itemPrice, itemCategory, itemDescription, dateListed, itemImage],
-      function (err) {
-        if (err) {
-          console.error(err);
-        } else {
-          console.log(`Listing ${this.lastID} created`);
-        }
-      }
-    );
-  });
-};
 
 db.run(
   `
@@ -66,7 +44,6 @@ CREATE TABLE IF NOT EXISTS "Listings" (
       console.error(err.message);
     } else {
       console.log("Table created successfully");
-      insertMockData();
     }
   }
 );
@@ -89,6 +66,18 @@ app.get("/SelectListings", (req, res) => {
       res.status(500).send("Internal server error");
     } else {
       res.json(rows);
+    }
+  });
+});
+
+app.get("/GetCategories", (req, res) => {
+  db.all("SELECT DISTINCT CATEGORY FROM Listings", (err, rows) => {
+    if (err) {
+      console.error(err.message);
+      res.status(500).send("Internal server error");
+    } else {
+      const categories = rows.map((row) => row.CATEGORY);
+      res.json(categories);
     }
   });
 });
