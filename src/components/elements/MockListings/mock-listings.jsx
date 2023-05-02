@@ -11,10 +11,10 @@ export const MockItems = (props) => {
     <div className="mockItem">
       <img src={itemImage} alt={itemName} />
       <div className="description">
-        <p>
+        <p className="item-name">
           <b>{itemName}</b>
         </p>
-        <p> ${itemPrice}</p>
+        <p className="item-price"> ${itemPrice}</p>
       </div>
       <button className="addToCartBttn" onClick={() => addToCart(id)}>
         Add To Cart {cartItemCount > 0 && <> ({cartItemCount})</>}
