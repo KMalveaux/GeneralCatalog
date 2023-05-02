@@ -1,14 +1,10 @@
-import React, { useEffect, useState, useContext } from "react";
-import axios from "axios";
-import { ITEMS } from "../MockListings";
-import { MockItems } from "./mock-listings";
+import React, { useEffect, useState } from "react";
 import "./ItemShop.css";
-import { ShopContext } from "./shop-context";
+import axios from "axios";
 import Item from "../item";
 
 export const Shop = () => {
   const [listings, setListings] = useState([]);
-  const { addToCart, cartItems } = useContext(ShopContext);
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -24,11 +20,6 @@ export const Shop = () => {
     fetchListings();
   }, []);
 
-  const getImage = (path) => {
-    console.log(path.split("/").slice(-1));
-    return path.split("/").slice(-1);
-  };
-
   return (
     <div className="shop">
       <div className="shopTitle">
@@ -37,20 +28,32 @@ export const Shop = () => {
 
       <div className="listingsPage">
         {listings.map((listing) => (
-          <div className="individualListing" key={listing.ID}>
+          <div
+            className="individualListing"
+            onClick={() => console.log(`"You clicked on ${listing.rowid}"`)}
+          >
             <Item
-              id={listing.ID}
+              id={listing.rowid}
               itemName={listing.PRODUCT_NAME}
               itemPrice={listing.PRICE}
+              itemDescription={listing.DESCRIPTION}
               itemImage={listing.IMAGE}
             />
-          </div>
-        ))}
-      </div>
 
-      <div className="mockItems">
-        {ITEMS.map((mockItem) => (
-          <MockItems key={mockItem.id} data={mockItem} />
+            {/* <h2>{listing.PRODUCT_NAME}</h2>
+            <img
+              src={require(`../../images/` +
+                getImage(listing.IMAGE.replace(/\\/g, "/")))}
+              alt="PIC HERE"
+            />
+            <p>{listing.PRICE}</p>
+            <button
+              className="addToCartBttn"
+              onClick={() => addToCart(listing.id)}
+            >
+              Add To Cart
+            </button> */}
+          </div>
         ))}
       </div>
     </div>

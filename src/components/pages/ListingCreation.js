@@ -30,12 +30,12 @@ function ListingCreation() {
     formData.append("description", itemDescription);
     formData.append("image", selectedFile);
 
-    axios
-      .get("http://localhost:5000/DeleteListings")
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => console.error(err));
+    // axios
+    //   .get("http://localhost:5000/DeleteListings")
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   })
+    //   .catch((err) => console.error(err));
 
     axios
       .post("http://localhost:5000/CreateListing", formData)
@@ -58,10 +58,10 @@ function ListingCreation() {
     console.log(listings);
   };
 
-  const getImage = (path) => {
-    console.log(path.split("/").slice(-1));
-    return path.split("/").slice(-1);
-  };
+  // const getImage = (path) => {
+  //   console.log(path.split("/").slice(-1));
+  //   return path.split("/").slice(-1);
+  // };
 
   const handleClick = () => {
     fileInput.current.click();
@@ -95,35 +95,15 @@ function ListingCreation() {
           />
         </div>
       </div>
-      <div className="inputBox-labels" style={{ display: "flex", flexDirection: "row" }}>
+      <div style={{ display: "flex", flexDirection: "row" }}>
         <TextInput label="Item Name " ref={itemNameInputRef} />
         <TextInput label="Price " ref={itemPriceInputRef} />
         <TextInput label="Category " ref={itemCategoryInputRef} />
         <TextInput label="Description " ref={itemDescriptionInputRef} />
-        <button className="create-listing-bttn" onClick={HandleCreateListing}>Create Listing</button>
-      </div>
-      <div className="create-listing-label">
-        <h1>Listings</h1>
-        <ul>
-          {listings.map((listing) => (
-            <li key={listing.id}>
-              <h2>{listing.PRODUCT_NAME}</h2>
-              <p>{listing.DESCRIPTION}</p>
-              <p>{listing.PRICE}</p>
-              <p>{listing.CATEGORY}</p>
-              <p>{listing.DATE_LISTED}</p>
-              <img
-                src={require(`../images/` +
-                  getImage(listing.IMAGE.replace(/\\/g, "/")))}
-                alt="PIC HERE"
-              />
-              <p>{`${listing.IMAGE.replace(/\\/g, "/")}`}</p>
-            </li>
-          ))}
-        </ul>
+        <button onClick={HandleCreateListing}>Create Listing</button>
       </div>
     </div>
   );
 }
 
-export default ListingCreation
+export default ListingCreation;

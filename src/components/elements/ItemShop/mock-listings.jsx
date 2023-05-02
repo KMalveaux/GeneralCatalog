@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ShopContext } from "./shop-context";
+import { ShopContext } from "./Shop-context";
 
 export const MockItems = (props) => {
   const { id, itemName, itemPrice, itemImage } = props.data;

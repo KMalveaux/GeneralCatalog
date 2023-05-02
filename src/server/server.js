@@ -14,7 +14,7 @@ app.use(express.json());
 // Configure multer to handle file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, `../images/`); // set the destination folder
+    cb(null, `../images`); // set the destination folder
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname); // keep the original filename
@@ -48,6 +48,20 @@ CREATE TABLE IF NOT EXISTS "Listings" (
   }
 );
 
+db.run(
+  `
+CREATE TABLE IF NOT EXISTS "Cart" (
+  "itemID" INTEGER
+  );`,
+  (err) => {
+    if (err) {
+      console.error(err.message);
+    } else {
+      console.log("Table created successfully");
+    }
+  }
+);
+
 app.get("/DeleteListings", (req, res) => {
   // Drop the table
   db.run("DROP TABLE Listings", function (err) {
@@ -59,8 +73,42 @@ app.get("/DeleteListings", (req, res) => {
   });
 });
 
+app.get("/DeleteCart", (req, res) => {
+  // Drop the table
+  db.run("DROP TABLE Cart", function (err) {
+    if (err) {
+      console.error(err.message);
+    } else {
+      console.log("Table Cart has been dropped");
+    }
+  });
+});
+
+app.post("/removeAllCart", (req, res) => {
+  const sql = "DELETE FROM Cart";
+  db.run(sql, [], (err) => {
+    if (err) {
+      console.error(err.message);
+      res.status(500).send("Internal server error");
+    } else {
+      res.send("All rows deleted from the cart");
+    }
+  });
+});
+
 app.get("/SelectListings", (req, res) => {
-  db.all("SELECT * FROM Listings", (err, rows) => {
+  db.all("SELECT rowid, * FROM Listings", (err, rows) => {
+    if (err) {
+      console.error(err.message);
+      res.status(500).send("Internal server error");
+    } else {
+      res.json(rows);
+    }
+  });
+});
+
+app.get("/SelectCart", (req, res) => {
+  db.all("SELECT itemID FROM Cart", (err, rows) => {
     if (err) {
       console.error(err.message);
       res.status(500).send("Internal server error");
@@ -96,6 +144,20 @@ app.get("/SelectListingsCategories", (req, res) => {
   );
 });
 
+app.get("/SelectListingsByID", (req, res) => {
+  const rowids = req.query.rowids.split(",");
+  const placeholders = rowids.map(() => "?").join(",");
+  const sql = `SELECT * FROM Listings WHERE rowid IN (${placeholders})`;
+  db.all(sql, rowids, (err, rows) => {
+    if (err) {
+      console.error(err.message);
+      res.status(500).send("Internal server error");
+    } else {
+      res.json(rows);
+    }
+  });
+});
+
 app.post("/CreateListing", upload.single("image"), (req, res) => {
   const { productName, price, category, description } = req.body;
   const dateListed = Date.now(); // or however you want to generate the date
@@ -115,6 +177,19 @@ app.post("/CreateListing", upload.single("image"), (req, res) => {
       }
     }
   );
+});
+
+app.post("/AddToCart", (req, res) => {
+  const { itemID } = req.body;
+  const query = "INSERT INTO Cart (itemID) VALUES (?)";
+  db.run(query, itemID, function (err) {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Internal server error");
+    } else {
+      res.status(201).send(`Inserted itemid ${this.lastID} into cart`);
+    }
+  });
 });
 
 app.post("/DeleteListing", (req, res) => {

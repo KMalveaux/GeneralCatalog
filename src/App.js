@@ -14,7 +14,7 @@ import ListingCreation from './components/pages/ListingCreation';
 import "./components/elements/ShoppingCart/Cart.css";
 import "./components/elements/ItemShop/ItemShop.css";
 import { Route, Routes } from 'react-router-dom';
-import { ShopContextProvider } from './components/elements/ItemShop/shop-context';
+import { ShopContextProvider } from './components/elements/ItemShop/Shop-context';
 import ProductPage from './components/pages/ProductPage';
 
 function App() {
