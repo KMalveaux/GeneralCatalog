@@ -1,5 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { ITEMS } from "../MockListings";
+import { Item } from "./Item";
+
 
 export const ShopContext = createContext(null);
 
@@ -18,7 +20,7 @@ export const ShopContextProvider = (props) => {
     let totalAmount = 0;
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
-        let itemInfo = ITEMS.find((mockItem) => mockItem.id === Number(item));
+        let itemInfo = ITEMS.find((Item) => Item.id === Number(item));
         totalAmount += cartItems[item] * itemInfo.price;
       }
     }

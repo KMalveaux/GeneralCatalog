@@ -10,7 +10,7 @@
   align-items: center;
   text-align: center;
 }
-.mockItems {
+.items {
   width: 100%;
   height: auto;
   display: grid;
@@ -18,7 +18,7 @@
   place-items: center;
 }
 
-.mockItem {
+.itemProp {
   border-radius: 15px;
   width: 250px;
   height: 350px;
@@ -29,18 +29,18 @@
   align-items: center;
 }
 
-.mockItem img {
+.itemProp img {
   width: 400px;
 }
 
-.mockItem .description {
+.itemProp .description {
   text-align: center;
   font-family: cursive;
   font-size: x-large;
   margin-top: 2rem;
 }
 
-.mockItem .description .item-price {
+.itemProp .description .item-price {
   text-align: center;
   font-family: cursive;
   font-size: x-large;

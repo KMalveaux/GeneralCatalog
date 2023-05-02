@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
-import { ShopContext } from "../MockListings/mock-shop-context";
+import { ShopContext } from "../MockListings/shop-context";
 import { ITEMS } from "../MockListings"
 import { CartItem } from "./mock-cart-item";
 import { useNavigate } from "react-router-dom";
-
 import "./MockCart.css";
 
 export const Cart = () => {
@@ -18,10 +17,11 @@ export const Cart = () => {
         <h1>Your Cart Items</h1>
       </div>
       <div className="cart">
-        {ITEMS.map((mockItem) => {
-          if (cartItems[mockItem.id] !== 0) {
-            return <CartItem data={mockItem} />;
+        {ITEMS.map((listing) => {
+          if (cartItems[listing.id] !== 0) {
+            return <CartItem data={listing} />;
           }
+          return null;
         })}
       </div>
 

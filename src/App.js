@@ -14,7 +14,7 @@ import ListingCreation from './components/pages/ListingCreation';
 import "./components/elements/MockCart/MockCart.css";
 import "./components/elements/MockListings/MockListings.css";
 import { Route, Routes } from 'react-router-dom';
-import { ShopContextProvider } from './components/elements/MockListings/mock-shop-context';
+import { ShopContextProvider } from './components/elements/MockListings/shop-context';
 import ProductPage from './components/pages/ProductPage';
 
 function App() {

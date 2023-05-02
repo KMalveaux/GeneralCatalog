@@ -1,3 +1,5 @@
+const { ITEMS } = require("./path/to/MockListings");
+
 const express = require("express");
 const sqlite3 = require("sqlite3").verbose();
 const cors = require("cors");
@@ -24,6 +26,26 @@ const upload = multer({ storage: storage });
 
 const db = new sqlite3.Database("../database/WizardCatalog.db");
 
+const insertMockData = () => {
+  ITEMS.forEach((item) => {
+    const { itemName, itemPrice, itemCategory, itemDescription, itemImage } = item;
+    const dateListed = Date.now();
+    const query =
+      "INSERT INTO Listings (PRODUCT_NAME, PRICE, CATEGORY, DESCRIPTION, DATE_LISTED, IMAGE) VALUES (?, ?, ?, ?, ?, ?)";
+    db.run(
+      query,
+      [itemName, itemPrice, itemCategory, itemDescription, dateListed, itemImage],
+      function (err) {
+        if (err) {
+          console.error(err);
+        } else {
+          console.log(`Listing ${this.lastID} created`);
+        }
+      }
+    );
+  });
+};
+
 db.run(
   `
 CREATE TABLE IF NOT EXISTS "Listings" (
@@ -44,6 +66,7 @@ CREATE TABLE IF NOT EXISTS "Listings" (
       console.error(err.message);
     } else {
       console.log("Table created successfully");
+      insertMockData();
     }
   }
 );
