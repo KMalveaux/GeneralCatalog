@@ -1,11 +1,14 @@
 .shopTitle {
   font-weight: bolder;
-  font-size: xx-large;
+  font-size: xxx-large;
   font-family: cursive;
-  text-align: center;
-  justify-content: center;
   margin-top: 2rem;
   margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .mockItems {
   width: 100%;
@@ -17,7 +20,7 @@
 
 .mockItem {
   border-radius: 15px;
-  width: 300px;
+  width: 250px;
   height: 350px;
   margin: 100px;
   display: flex;
@@ -32,6 +35,15 @@
 
 .mockItem .description {
   text-align: center;
+  font-family: cursive;
+  font-size: x-large;
+  margin-top: 2rem;
+}
+
+.mockItem .description .item-price {
+  text-align: center;
+  font-family: cursive;
+  font-size: x-large;
 }
 
 .product:hover {
@@ -55,7 +67,7 @@
 }
 
 .addToCartBttn:hover {
-  background-color: rgb(19, 19, 19);
+  background-color: #f68a9c;
   color: white;
   cursor: pointer;
 }

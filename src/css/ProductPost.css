@@ -1,5 +1,5 @@
 .productContainer {
-  width: 20vw;
+  width: 100%;
   height: 55vh;
   margin: 0.5rem;
   border-style: solid;
@@ -8,24 +8,23 @@
   border-radius: 25px;
   padding: 0.1rem;
   position: relative;
+  box-sizing: border-box;
 }
 
 .name {
-  position: relative;
-  font-size: 30px;
-  font-family: cursive;
-  top: 75%;
-  text-align: left;
-  left: 5%;
   position: absolute;
+  font-size: 25px;
+  font-family: cursive;
+  bottom: 18%;
+  left: 5%;
 }
 
 .price {
-  position: relative;
-  font-size: 20px;
-  top: 83%;
-  text-align: left;
-  left: 7.5%;
+  position: absolute;
+  font-size: 15px;
+  font-family: cursive;
+  bottom: 10%;
+  left: 15%;
 }
 
 .addToCartButton {
@@ -41,8 +40,8 @@
   border-radius: 15px;
   position: absolute;
   cursor: pointer;
-  margin-top: 22rem;
-  margin-left: 2rem;
+  bottom: 20px;
+  right: 5%;
 }
 
 .addToCartButton:hover {
