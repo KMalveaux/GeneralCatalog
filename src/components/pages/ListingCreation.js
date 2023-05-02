@@ -113,7 +113,8 @@ function ListingCreation() {
               <p>{listing.CATEGORY}</p>
               <p>{listing.DATE_LISTED}</p>
               <img
-                src={require(`../images` + getImage(listing.IMAGE.replace(/\\/g, "/")))}
+                src={require(`../images/` +
+                  getImage(listing.IMAGE.replace(/\\/g, "/")))}
                 alt="PIC HERE"
               />
               <p>{`${listing.IMAGE.replace(/\\/g, "/")}`}</p>
