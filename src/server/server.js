@@ -14,7 +14,6 @@ app.use(express.json());
 // Configure multer to handle file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "D:/LocalDevApps/wizardshop/src/components/images"); // set the destination folder
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname); // keep the original filename
@@ -22,7 +21,6 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-const db = new sqlite3.Database("../database/WizardCatalog.db");
 
 db.run(
   `
@@ -70,6 +68,17 @@ app.get("/SelectListings", (req, res) => {
   });
 });
 
+app.get('/SelectListingsCategories', (req, res) => {
+  db.all(("SELECT FROM Listings WHERE CATEGORY = " + req.body.category), (err, rows) => {
+    if (err) {
+      console.error(err.message);
+      res.status(500).send("Internal server error");
+    } else {
+      res.json(rows);
+    }
+  });
+});
+
 app.post("/CreateListing", upload.single("image"), (req, res) => {
   const { productName, price, category, description } = req.body;
   const dateListed = Date.now(); // or however you want to generate the date
@@ -86,6 +95,24 @@ app.post("/CreateListing", upload.single("image"), (req, res) => {
         res.status(500).send("Internal server error");
       } else {
         res.status(201).send(`Listing ${this.lastID} created`);
+      }
+    }
+  );
+});
+
+app.post("/DeleteListing", (req, res) =>{
+  const {productName} = req.body;
+  console.log(("DELETE FROM Listings WHERE PRODUCT_NAME = " + productName));
+  const query = 
+    ("DELETE FROM Listings WHERE PRODUCT_NAME = " + productName);
+  db.run(
+    query, [productName],
+    function(err){
+      if (err){
+        console.error(err);
+        res.status(500).send("Internal server error");
+      } else {
+        res.status(201).send(`Listing ${productName} deleted`);
       }
     }
   );
