@@ -37,6 +37,8 @@
 
 .cartItem img {
   width: 200px;
+  margin-left: 1.5rem;
+  border-radius: 15px;
 }
 
 .cartItem .description {

@@ -11,12 +11,12 @@ export default function ProductPage() {
       <div className="product">
         <div className="product-image">
         <img 
-          src={require('../images/potion.jpg')} 
+          src={require('../images/potion.png')} 
           alt="product" 
         />
         </div>
         <div className="product-details">
-          <h1 className="product-name">potion</h1>
+          <h1 className="product-name">Pink Potion</h1>
           <div className="product-rating">
             <span className="star">&#9733;</span>
             <span className="star">&#9733;</span>
@@ -26,7 +26,7 @@ export default function ProductPage() {
             <span className="product-rating-text">(4.0)</span>
           </div>
           <p className="product-description">
-            magic potion to heal you
+            A magical healing potion
           </p>
           <div className="product-price">
             <span className="currency">$</span>
