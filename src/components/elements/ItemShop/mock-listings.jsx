@@ -9,7 +9,7 @@ export const MockItems = (props) => {
 
   return (
     <div className="mockItem">
-      <img src={itemImage} alt={itemName} />
+      <button><img src={itemImage} alt="my image" onClick={() => window.location.href='/ProductPage'} /></button>
       <div className="description">
         <p className="item-name">
           <b>{itemName}</b>
