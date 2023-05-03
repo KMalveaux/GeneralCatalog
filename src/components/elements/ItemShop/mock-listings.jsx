@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ShopContext } from "./Shop-context";
+import { ShopContext } from "./mock-shop-context";
 
 export const MockItems = (props) => {
   const { id, itemName, itemPrice, itemImage } = props.data;
@@ -9,12 +9,15 @@ export const MockItems = (props) => {
 
   return (
     <div className="mockItem">
-      <img src={itemImage} alt={itemName} />
+      <button>
+        <img src={itemImage} alt="Item Pic" onClick={() => 
+          window.location.href='/ProductPage'} />
+      </button>
       <div className="description">
-        <p className="item-name">
+        <p>
           <b>{itemName}</b>
         </p>
-        <p className="item-price"> ${itemPrice}</p>
+        <p> ${itemPrice}</p>
       </div>
       <button className="addToCartBttn" onClick={() => addToCart(id)}>
         Add To Cart {cartItemCount > 0 && <> ({cartItemCount})</>}
