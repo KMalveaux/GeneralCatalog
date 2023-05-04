@@ -28,7 +28,7 @@
 }
 
 .addToCartButton {
-  background-color: #d27685;
+  background-color: rgb(191, 172, 226);
   border: 2px solid transparent;
   color: white;
   font-family: cursive;
@@ -45,5 +45,5 @@
 }
 
 .addToCartButton:hover {
-  background-color: #f68a9c;
+  background-color: #7d72cd;
 }

@@ -89,8 +89,8 @@
   width: 90vw;
   height: 100%;
   border-style: solid;
-  border-color: red;
-  border-width: 10px;
+  border-color: rgb(236, 242, 255);
+  border-width: 5px;
 }
 
 .individualListing {

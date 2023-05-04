@@ -94,12 +94,12 @@
   font-weight: bold;
   font-family: cursive;
   color: #fff;
-  background-color: #37306b;
+  background-color: rgb(191, 172, 226);
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .add-to-cart-button:hover {
-  background-color: #564bad;
+  background-color: #7d72cd;
 }

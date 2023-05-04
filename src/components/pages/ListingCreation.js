@@ -84,9 +84,7 @@ function ListingCreation() {
             <div className="PicturePlaceholder" />
           )}
           <button className="submitPicture">upload</button>
-          <button className="submitPicture" onClick={handleClick}>
-            Select Image
-          </button>
+          <button className="submitPicture" onClick={handleClick}>Select Image</button>
           <input
             type="file"
             ref={fileInput}
