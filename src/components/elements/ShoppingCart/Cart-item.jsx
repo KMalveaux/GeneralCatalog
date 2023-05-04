@@ -1,7 +1,6 @@
-import { useContext } from "react";
 import React from "react";
-import { ShopContext } from "../ItemShop/Shop-context";
 
+/*
 export const CartItem = (props) => {
   const { id, itemName, itemPrice, itemImage } = props.data;
   const { cartItems, addToCart, removeFromCart, updateCartItemCount } =
@@ -27,22 +26,30 @@ export const CartItem = (props) => {
     </div>
   );
 };
+*/
 
-/*
+const getImage = (path) => {
+  return path.split("/").slice(-1);
+};
 
-import React from "react";
-
-export const CartItem = (props) => {
+const CartItem = (props) => {
   return (
     <div className="cartItem">
-      <img src={props.itemImage} alt={props.itemName} />
+      <img
+        src={require("../../images/" +
+          getImage(props.itemImage.replace(/\\/g, "/")))}
+        alt={props.itemName}
+      />
       <div className="description">
         <p>
           <b>{props.itemName}</b>
         </p>
         <p> Price: ${props.itemPrice}</p>
         <div className="countHandler">
-          <button onClick={() => removeFromCart(props.id)}> - </button>
+          <button onClick={() => removeFromCart(props.id)}>
+            {" "}
+            Remove From Cart{" "}
+          </button>
         </div>
       </div>
     </div>
@@ -51,5 +58,6 @@ export const CartItem = (props) => {
 
 function removeFromCart() {
   console.log("removed");
+}
 
-*/
+export default CartItem;

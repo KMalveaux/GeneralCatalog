@@ -2,8 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../ItemShop/Shop-context";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-// import CartItem from "./Cart-item";
-// import ActualCartItem from "./ActualCartItem";
+import CartItem from "./Cart-item";
 import "./Cart.css";
 
 export const Cart = () => {
@@ -74,11 +73,14 @@ export const Cart = () => {
       <div>
         <h1>Your Cart Items</h1>
       </div>
-      <div style={{ height: "100vh", width: "100vw" }}>
+      <div>
         {listings.map((listing) => (
-          <div key={listing.rowid}>
-            <p>Some meaningless text</p>
-          </div>
+          <CartItem
+            itemName={listing.PRODUCT_NAME}
+            itemPrice={listing.PRICE}
+            itemImage={listing.IMAGE}
+            id={listing.rowid}
+          />
         ))}
         <button onClick={() => clearCart()}>Clear Cart</button>
         <button onClick={() => deleteCart()}>Delete Cart</button>
