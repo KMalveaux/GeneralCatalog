@@ -17,7 +17,7 @@ function ListingCreation() {
     setSelectedFile(event.target.files[0]);
   };
 
-  const HandleCreateListing = () => {
+  const HandleCreateListing = async () => {
     const itemName = itemNameInputRef.current.getText();
     const itemPrice = itemPriceInputRef.current.getText();
     const itemCategory = itemCategoryInputRef.current.getText();
@@ -30,12 +30,20 @@ function ListingCreation() {
     formData.append("description", itemDescription);
     formData.append("image", selectedFile);
 
-    axios
-      .get("http://localhost:5000/DeleteListings")
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => console.error(err));
+    try {
+      await axios.post("http://localhost:5000/CreateListing", formData);
+      const response = await axios.get("http://localhost:5000/SelectListings");
+      setListings(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+
+    // axios
+    //   .get("http://localhost:5000/DeleteListings")
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   })
+    //   .catch((err) => console.error(err));
 
     axios
       .post("http://localhost:5000/CreateListing", formData)
@@ -83,7 +91,7 @@ function ListingCreation() {
           ) : (
             <div className="PicturePlaceholder" />
           )}
-          <button className="submitPicture">upload</button>
+          <button className="submitPicture">Upload</button>
           <button className="submitPicture" onClick={handleClick}>
             Select Image
           </button>
