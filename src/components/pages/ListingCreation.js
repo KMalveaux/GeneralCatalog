@@ -30,14 +30,6 @@ function ListingCreation() {
     formData.append("description", itemDescription);
     formData.append("image", selectedFile);
 
-    try {
-      await axios.post("http://localhost:5000/CreateListing", formData);
-      const response = await axios.get("http://localhost:5000/SelectListings");
-      setListings(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-
     // axios
     //   .get("http://localhost:5000/DeleteListings")
     //   .then((res) => {
@@ -53,22 +45,6 @@ function ListingCreation() {
       .catch((err) => {
         console.error(err);
       });
-
-    axios
-      .get("http://localhost:5000/SelectListings")
-      .then((res) => {
-        console.log(res.data);
-        setListings(res.data);
-      })
-      .catch((err) => console.error(err));
-
-    console.log("axios call done");
-    console.log(listings);
-  };
-
-  const getImage = (path) => {
-    console.log(path.split("/").slice(-1));
-    return path.split("/").slice(-1);
   };
 
   const handleClick = () => {

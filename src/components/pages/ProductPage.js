@@ -1,42 +1,33 @@
-import React from 'react';
+import React from "react";
 import "../../css/ProductPage.css";
+import { useSearchParams } from "react-router-dom";
 
 const handleAddToCart = () => {
-    // TODO: Implement cart functionality
-  }
+  // TODO: Implement cart functionality
+};
+
+const getImage = (path) => {
+  return path.split("/").slice(-1);
+};
 
 export default function ProductPage() {
+  const [searchparams] = useSearchParams();
+
   return (
-    <div className="container">
-      <div className="product">
-        <div className="product-image">
-        <img 
-          src={require('../images/potion.png')} 
-          alt="product" 
-        />
-        </div>
-        <div className="product-details">
-          <h1 className="product-name">Pink Potion</h1>
-          <div className="product-rating">
-            <span className="star">&#9733;</span>
-            <span className="star">&#9733;</span>
-            <span className="star">&#9733;</span>
-            <span className="star">&#9733;</span>
-            <span className="star">&#9734;</span>
-            <span className="product-rating-text">(4.0)</span>
-          </div>
-          <p className="product-description">
-            A magical healing potion
-          </p>
-          <div className="product-price">
-            <span className="currency">$</span>
-            <span className="price">9.99</span> 
-            <span className="price-label"> / each</span>
-          </div>
-          <div className="product-add-to-cart">
-          <button className="add-to-cart-button" onClick={handleAddToCart}>Add to Cart</button>
-          </div>
-        </div>
+    <div style={{ display: "flex", flexDirection: "row" }}>
+      <img
+        className="product-image"
+        src={require("../images/" +
+          getImage(searchparams.get("Image").replace(/\\/g, "/")))}
+      />
+      <div className="product-details">
+        <h1 className="product-name">{searchparams.get("Name")}</h1>
+        <div className="solid-line" />
+        <p className="product-description">
+          Description: {searchparams.get("Description")}
+        </p>
+        <p>${searchparams.get("Price")}</p>
+        <button className="BuyButton">Add To Cart</button>
       </div>
     </div>
   );

@@ -9,22 +9,44 @@
   padding: 0.1rem;
   position: relative;
   box-sizing: border-box;
+  display: flexbox;
+  flex-direction: column;
 }
 
 .name {
-  position: absolute;
   font-size: 25px;
   font-family: cursive;
+  font-weight: 400;
   bottom: 18%;
   left: 5%;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .price {
-  position: absolute;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
   font-size: 15px;
   font-family: cursive;
-  bottom: 10%;
-  left: 15%;
+}
+
+.description{
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 10px;
+}
+
+.image {
+  max-height: 80%;
+  max-width: 80%;
+  position: relative;
+  left: 11%;
+  padding: 10px;
+  border-radius: 10%;
 }
 
 .addToCartButton {
@@ -38,10 +60,8 @@
   padding-top: 5px;
   padding-bottom: 5px;
   border-radius: 15px;
-  position: absolute;
   cursor: pointer;
-  bottom: 20px;
-  right: 5%;
+
 }
 
 .addToCartButton:hover {

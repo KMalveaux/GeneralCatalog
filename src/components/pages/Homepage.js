@@ -13,10 +13,6 @@ export default function Homepage() {
       <div className="multiCarousel-homepage">
         <CategoryCarousel />
       </div>
-      <h3 className="homepage-carousel-headers">Deals</h3>
-      <div className="multiCarousel-homepage">
-        <Multicarousel />
-      </div>
     </>
   );
 }

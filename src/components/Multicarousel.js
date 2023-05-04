@@ -8,6 +8,27 @@ import "react-multi-carousel/lib/styles.css";
 import axios from "axios";
 
 export default function Multicarousel(props) {
+  const [listings, setListings] = useState([]);
+
+  useEffect(() => {
+    const fetchListings = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5000/SelectListings"
+        );
+        const sortedListings = response.data
+          .filter((listing) => typeof listing.DATE_LISTED === "number")
+          .sort((a, b) => a.DATE_LISTED - b.DATE_LISTED);
+        setListings(sortedListings);
+        console.log("Sorted listings");
+        console.log(listings);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchListings();
+  }, []);
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -39,19 +60,25 @@ export default function Multicarousel(props) {
   return (
     <div className="multiCarousel-listings">
       <Carousel responsive={responsive}>
-        {items.map((item, index) => (
+        {listings.map((listing) => (
           <div
-            key={index}
+            key={listing.rowid}
             className="sidescrolling-box"
             style={{ height: "100%", width: "100%" }}
           >
-            <ProductPost itemName={item.itemName} itemPrice={item.itemPrice} />
+            <ProductPost
+              itemName={listing.PRODUCT_NAME}
+              itemPrice={listing.PRICE}
+              itemImage={listing.IMAGE}
+              itemDescription={listing.DESCRIPTION}
+            />
           </div>
         ))}
       </Carousel>
     </div>
   );
 }
+
 export function CategoryCarousel() {
   const responsive = {
     superLargeDesktop: {

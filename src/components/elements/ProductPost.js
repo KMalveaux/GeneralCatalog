@@ -1,31 +1,60 @@
 import "../../css/ProductPost.css";
+import { useNavigate, Link, createSearchParams } from "react-router-dom";
 
-function ProductPost(props){
-    function handleClick() {
-        console.log(`Clicked on ${props.itemName}, TODO: implement functionality such that we are now taken to this items store page.`);
-    }
+function ProductPost(props) {
+  const navigate = useNavigate();
+  const openStorePage = () => {
+    navigate({
+      pathname: "/ProductPage",
+      search: createSearchParams({
+        Name: props.itemName,
+        Image: props.itemImage,
+        Price: props.itemPrice,
+        Description: props.itemDescription,
+      }).toString(),
+    });
+  };
 
-    function handleAddToCartClick(e) {
-        e.stopPropagation();
-        console.log(
-          `Clicked on Add to Cart for ${props.itemName}, TODO: implement functionality to add item to cart.`
-        );
-      }
+  const getImage = (path) => {
+    return path.split("/").slice(-1);
+  };
 
-    return(
-    <div className="productContainer" onClick={handleClick}>
-        
-        <p className="name">
-            {props.itemName}
-        </p>
-        <p className="price">
-            {props.itemPrice}
-        </p>
-        <button className="addToCartButton" onClick={handleAddToCartClick}>
-            Buy
+  return (
+    <div className="productContainer">
+      <div
+        style={{
+          display: "flex",
+          height: "75%",
+          flexDirection: "column",
+          borderWidth: "5px",
+          borderStyle: "solid",
+        }}
+      >
+        <img
+          className="image"
+          src={require("../images/" +
+            getImage(props.itemImage.replace(/\\/g, "/")))}
+          alt={props.itemName}
+        />
+        <p className="name">{props.itemName}</p>
+        <p className="description">{props.itemDescription}</p>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+          marginTop: "25%",
+        }}
+      >
+        <p className="price">${props.itemPrice}</p>
+        <button className="addToCartButton" onClick={openStorePage}>
+          Buy
         </button>
-    </div>   
-    );
+      </div>
+    </div>
+  );
 }
 
 export default ProductPost;

@@ -2,8 +2,8 @@ const express = require("express");
 const sqlite3 = require("sqlite3").verbose();
 const cors = require("cors");
 const multer = require("multer");
-const fs = require("fs");
-const path = require("path");
+// const fs = require("fs");
+// const path = require("path");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -14,7 +14,7 @@ app.use(express.json());
 // Configure multer to handle file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "../images")); // update the destination folder
+    cb(null, `D:/LocalDevApps/wizardshop/src/components/images`); // set the destination folder
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname); // keep the original filename
@@ -22,12 +22,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-const db = new sqlite3.Database("/Users/ethantillmon/Desktop/LSU/4402 DB Mgmt/wizardcatalog/src/database/WizardCatalog.db"); // /Users/ethantillmon/Desktop/LSU/4402 DB Mgmt/wizardcatalog/src/database/WizardCatalog.db
-
-app.use(cors({
-  origin: 'http://localhost:5000/'
-}));
-
+const db = new sqlite3.Database("../database/WizardCatalog.db");
 
 db.run(
   `
@@ -166,7 +161,7 @@ app.get("/SelectListingsByID", (req, res) => {
 app.post("/CreateListing", upload.single("image"), (req, res) => {
   const { productName, price, category, description } = req.body;
   const dateListed = Date.now(); // or however you want to generate the date
-  const picturePath = `images/${req.file.originalname}`;  // get the path of the uploaded image
+  const picturePath = req.file.path; // get the path of the uploaded image
 
   const query =
     "INSERT INTO Listings (PRODUCT_NAME, PRICE, CATEGORY, DESCRIPTION, DATE_LISTED, IMAGE) VALUES (?, ?, ?, ?, ?, ?)";

@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import axios from "axios";
+import "./ItemShop/ItemShop.css";
 
 export const Item = (props) => {
   const getImage = (path) => {
@@ -14,7 +15,7 @@ export const Item = (props) => {
         alt={props.itemName}
         className="itemImage"
       />
-      <div className="description">
+      <div className="itemDescription">
         <p className="item-name">
           <b>{props.itemName}</b>
         </p>
@@ -23,7 +24,7 @@ export const Item = (props) => {
       <div
         style={{ display: "flex", flex: "row", justifyContent: "space-evenly" }}
       >
-        <button className="addToCartBttn" onClick={() => addToCart(props.id)}>
+        <button className="addToCartButton" onClick={() => addToCart(props.id)}>
           Add To Cart
         </button>
         <p className="item-price"> ${props.itemPrice}</p>

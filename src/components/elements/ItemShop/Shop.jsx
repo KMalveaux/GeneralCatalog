@@ -12,7 +12,10 @@ export const Shop = () => {
         const response = await axios.get(
           "http://localhost:5000/SelectListings"
         );
-        setListings(response.data);
+        const sortedListings = response.data.sort((a, b) =>
+          a.PRODUCT_NAME.localeCompare(b.PRODUCT_NAME)
+        );
+        setListings(sortedListings);
       } catch (error) {
         console.error(error);
       }
@@ -21,11 +24,7 @@ export const Shop = () => {
   }, []);
 
   return (
-    <div className="shop">
-      <div className="shopTitle">
-        <h1>Wizard Shop Listings</h1>
-      </div>
-
+    <div>
       <div className="listingsPage">
         {listings.map((listing) => (
           <div

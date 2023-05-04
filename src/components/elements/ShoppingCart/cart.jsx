@@ -1,14 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
-import { ShopContext } from "../ItemShop/Shop-context";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CartItem from "./Cart-item";
 import "./Cart.css";
 
 export const Cart = () => {
   // const { cartItems, getTotalCartAmount, checkout } = useContext(ShopContext);
-  const { getTotalCartAmount, checkout } = useContext(ShopContext);
-  const totalAmount = getTotalCartAmount();
 
   const [listings, setListings] = useState([]);
   const [cartIDs, setCartIDs] = useState([]);
@@ -87,8 +83,6 @@ export const Cart = () => {
     //window.location.reload();
   };
 
-  const navigate = useNavigate();
-
   return (
     <div className="cart">
       <div>
@@ -111,24 +105,6 @@ export const Cart = () => {
         <button onClick={() => clearCart()}>Clear Cart</button>
         <button onClick={() => deleteCart()}>Delete Cart</button>
       </div>
-
-      {totalAmount > 0 ? (
-        <div className="checkout">
-          <p> Subtotal: ${totalAmount} </p>
-          <button onClick={() => navigate("/")}> Continue Shopping </button>
-          <button
-            onClick={() => {
-              checkout();
-              navigate("/checkout");
-            }}
-          >
-            {" "}
-            Checkout{" "}
-          </button>
-        </div>
-      ) : (
-        <h2> Your Shopping Cart is Empty</h2>
-      )}
     </div>
   );
 };
