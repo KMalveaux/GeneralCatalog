@@ -52,7 +52,6 @@ export default function Multicarousel(props) {
     </div>
   );
 }
-
 export function CategoryCarousel() {
   const responsive = {
     superLargeDesktop: {

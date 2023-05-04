@@ -1,5 +1,4 @@
-import React from "react";
-import "./ItemShop/ItemShop.css";
+import React, { useContext } from "react";
 import axios from "axios";
 
 export const Item = (props) => {

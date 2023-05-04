@@ -1,75 +1,51 @@
-.shopTitle {
-  font-weight: bolder;
-  font-size: xxx-large;
-  font-family: cursive;
-  margin-top: 2rem;
-  margin-left: auto;
+
+.itemProp {
+  width: 20vw;
+  height: 60vh;
+  padding: 10px;
+  border-style: solid;
+  border-radius: 20px;
+  border-width: 3px;
+}
+
+.itemImage {
+  position: relative;
+  left: 10%;
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 25px;
+}
+
+.item-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-top: 35px;
+  font-size: large;
+  font-weight: 400;
+}
+
+.item-price {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-top: 25px;
+  font-size: large;
+  font-weight: 600;
+}
+
+.listingsPage {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.mockItems {
-  width: 100%;
-  height: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  place-items: center;
+  flex-wrap: wrap;
+  width: 90vw;
+  height: 100%;
+  border-style: solid;
+  border-color: red;
+  border-width: 10px;
 }
 
-.mockItem {
-  border-radius: 15px;
-  width: 250px;
-  height: 350px;
-  margin: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.mockItem img {
-  width: 400px;
-}
-
-.mockItem .description {
-  text-align: center;
-  font-family: cursive;
-  font-size: x-large;
-  margin-top: 2rem;
-}
-
-.mockItem .description .item-price {
-  text-align: center;
-  font-family: cursive;
-  font-size: x-large;
-}
-
-.product:hover {
-  transition: 0.3s ease-in;
-  cursor: pointer;
-}
-
-.addToCartBttn {
-  background-color: #d27685;
-  border: 2px solid transparent;
-  color: white;
-  font-family: cursive;
-  min-width: 100px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  border-radius: 15px;
-  cursor: pointer;
-  margin-top: 1.25rem;
-}
-
-.addToCartBttn:hover {
-  background-color: #f68a9c;
-  color: white;
-  cursor: pointer;
+.individualListing {
+  padding: 10px;
 }
 
 .itemProp {
