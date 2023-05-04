@@ -52,7 +52,7 @@
 }
 
 .addToCartBttn {
-  background-color: #d27685;
+  background-color: rgb(191, 172, 226);
   border: 2px solid transparent;
   color: white;
   font-family: cursive;
@@ -67,7 +67,7 @@
 }
 
 .addToCartBttn:hover {
-  background-color: #f68a9c;
+  background-color: #7d72cd;
   color: white;
   cursor: pointer;
 }
@@ -113,8 +113,8 @@
   width: 90vw;
   height: 100%;
   border-style: solid;
-  border-color: red;
-  border-width: 10px;
+  border-color: rgb(236, 242, 255);
+  border-width: 5px;
 }
 
 .individualListing {

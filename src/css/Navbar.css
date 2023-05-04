@@ -11,7 +11,7 @@ body {
 }
 
 .nav {
-  background-color: #37306b;
+  background-color: rgb(101, 93, 187);
   color: white;
   height: 90px;
   display: flex;
@@ -55,16 +55,12 @@ body {
   align-items: center;
 }
 
-.nav li.active {
-  background-color: #37306b;
-}
-
 .nav li.hover {
   background-color: #5648d2;
 }
 
 .flyout-menu {
   position: absolute;
-  background-color: #333;
+  background-color: #7d72cd;
   border: 1px solid;
 }

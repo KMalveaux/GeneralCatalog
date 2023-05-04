@@ -14,7 +14,7 @@ const FlyoutMenu = () => {
           <button
             id="flyoutMenuOffsetButton"
             onClick={toggleFlyoutMenu}
-            className="accountNavButton text-white hover focus:ring-4 focus:outline-none  rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center0"
+            className="accountNavButton text-white hover rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center0"
             type="button"
           >
             Account
@@ -37,13 +37,13 @@ const FlyoutMenu = () => {
           {showFlyoutMenu && (
             <div
               id="flyoutOffset"
-              className={`z-10 ${showFlyoutMenu ? '' : 'hidden'} absolute mt-1 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700`}
+              className={`z-10 ${showFlyoutMenu ? '' : 'hidden'} absolute mt-1 rounded-lg w-44 `}
             >
                 <ul className="flyoutAccountButton">
                     <li>
                         <Link
                             to="/Login" // Update this path
-                            className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                            className="flyoutLoginSignupBttns"
                         >
                             Login
                         </Link>
@@ -51,7 +51,7 @@ const FlyoutMenu = () => {
                     <li>
                         <Link 
                             to="/Signup" // Update this path
-                            className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                            className="flyoutLoginSignupBttns"
                         >
                             Sign Up
                         </Link>

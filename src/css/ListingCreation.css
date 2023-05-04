@@ -22,7 +22,7 @@
   padding: 5px;
   margin: 10px;
   margin-top: 20px;
-  background-color: #d27685;
+  background-color: rgb(191, 172, 226);
   border: 2px solid transparent;
   color: white;
   font-family: cursive;
@@ -34,7 +34,7 @@
 }
 
 .submitPicture .button {
-  background-color: #d27685;
+  background-color: rgb(191, 172, 226);
   border: 2px solid transparent;
   color: white;
   font-family: cursive;
@@ -48,6 +48,10 @@
   margin-left: 30px;
 }
 
+.submitPicture:hover {
+  background-color: #7d72cd;
+}
+
 input[type="text"] {
   padding: 8px;
   border: 2px solid #ccc;
@@ -57,7 +61,7 @@ input[type="text"] {
 }
 
 .create-listing-bttn {
-  background-color: #d27685;
+  background-color: rgb(191, 172, 226);
   border: 2px solid transparent;
   color: white;
   font-family: cursive;
@@ -72,7 +76,7 @@ input[type="text"] {
 }
 
 .create-listing-bttn:hover {
-  background-color: #f68a9c;
+  background-color: #7d72cd;
   color: white;
   cursor: pointer;
 }

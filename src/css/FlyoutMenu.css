@@ -5,11 +5,11 @@
 
 .flyoutAccountButton {
   display: block;
-  background-color: #4e496a;
+  background-color: rgb(113, 107, 189);
   font-size: 0.875rem /* 14px */;
-  line-height: 1.25rem /* 20px */;
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(229 231 235 / var(--tw-text-opacity));
+}
+
+.flyoutLoginSignupBttns:hover {
+  background-color: #7d72cd;
+  cursor: pointer;
 }
