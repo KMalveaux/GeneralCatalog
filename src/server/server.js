@@ -147,7 +147,7 @@ app.get("/SelectListingsCategories", (req, res) => {
 app.get("/SelectListingsByID", (req, res) => {
   const rowids = req.query.rowids.split(",");
   const placeholders = rowids.map(() => "?").join(",");
-  const sql = `SELECT * FROM Listings WHERE rowid IN (${placeholders})`;
+  const sql = `SELECT rowid, * FROM Listings WHERE rowid IN (${placeholders})`;
   db.all(sql, rowids, (err, rows) => {
     if (err) {
       console.error(err.message);
@@ -179,6 +179,17 @@ app.post("/CreateListing", upload.single("image"), (req, res) => {
   );
 });
 
+app.get("/ShowCart", (req, res) => {
+  db.all("SELECT rowid, * FROM Cart", (err, rows) => {
+    if (err) {
+      console.error(err.message);
+      res.status(500).send("Internal server error");
+    } else {
+      res.json(rows);
+    }
+  });
+});
+
 app.post("/AddToCart", (req, res) => {
   const { itemID } = req.body;
   const query = "INSERT INTO Cart (itemID) VALUES (?)";
@@ -192,11 +203,24 @@ app.post("/AddToCart", (req, res) => {
   });
 });
 
-app.post("/DeleteListing", (req, res) => {
+app.delete("/RemoveFromCart", (req, res) => {
+  const { id } = req.body;
+  const query = "DELETE FROM Cart WHERE itemID = ?";
+  db.run(query, id, function (err) {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Internal server error");
+    } else {
+      res.status(201).send(`Removed ${this.lastID} from cart`);
+    }
+  });
+});
+
+app.delete("/DeleteListing", (req, res) => {
   const { productName } = req.body;
   console.log("DELETE FROM Listings WHERE PRODUCT_NAME = " + productName);
   const query = "DELETE FROM Listings WHERE PRODUCT_NAME = " + productName;
-  db.run(query, [productName], function (err) {
+  db.run(query, productName, function (err) {
     if (err) {
       console.error(err);
       res.status(500).send("Internal server error");

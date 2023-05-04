@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 /*
 export const CartItem = (props) => {
@@ -33,6 +34,34 @@ const getImage = (path) => {
 };
 
 const CartItem = (props) => {
+  const removeFromCart = () => {
+    console.log("Attempting to delete: " + props.id);
+    axios
+      .delete("http://localhost:5000/RemoveFromCart", {
+        data: { id: props.id },
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+
+    axios
+      .get("http://localhost:5000/ShowCart")
+      .then((res) => {
+        console.log("Cart Data: ");
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  const handleRemoval = () => {
+    props.removeListing(props.id);
+  };
+
   return (
     <div className="cartItem">
       <img
@@ -46,18 +75,18 @@ const CartItem = (props) => {
         </p>
         <p> Price: ${props.itemPrice}</p>
         <div className="countHandler">
-          <button onClick={() => removeFromCart(props.id)}>
-            {" "}
-            Remove From Cart{" "}
+          <button
+            onClick={() => {
+              removeFromCart();
+              handleRemoval();
+            }}
+          >
+            Remove From Cart
           </button>
         </div>
       </div>
     </div>
   );
 };
-
-function removeFromCart() {
-  console.log("removed");
-}
 
 export default CartItem;

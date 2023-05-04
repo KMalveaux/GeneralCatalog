@@ -3,7 +3,6 @@ import axios from "axios";
 
 export const Item = (props) => {
   const getImage = (path) => {
-    console.log(path.split("/").slice(-1));
     return path.split("/").slice(-1);
   };
 
@@ -34,10 +33,6 @@ export const Item = (props) => {
 };
 
 function addToCart(itemID) {
-  const formData = new FormData();
-  console.log("QWE['PLMWPEINGPWOEN GWEOPIKN GVOIK: " + itemID);
-  formData.append("itemID", itemID);
-
   axios
     .post("http://localhost:5000/AddToCart", { itemID })
     .then((res) => {

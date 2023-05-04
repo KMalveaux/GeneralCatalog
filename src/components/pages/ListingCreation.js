@@ -58,10 +58,10 @@ function ListingCreation() {
     console.log(listings);
   };
 
-  // const getImage = (path) => {
-  //   console.log(path.split("/").slice(-1));
-  //   return path.split("/").slice(-1);
-  // };
+  const getImage = (path) => {
+    console.log(path.split("/").slice(-1));
+    return path.split("/").slice(-1);
+  };
 
   const handleClick = () => {
     fileInput.current.click();
