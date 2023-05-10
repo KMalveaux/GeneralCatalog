@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+
+.container {
+  margin: 1rem;
+  text-align: center;
+}
+
+.nav {
+  background-color: rgb(101, 93, 187);
+  color: white;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.site-title {
+  font-size: 2.5rem;
+  font-family: cursive;
+  justify-content: flex-start;
+  display: flex;
+  margin-left: 0.5rem;
+  align-items: center;
+}
+
+.wizard-logo {
+  margin-right: 2rem;
+  height: 60px;
+  display: flex;
+}
+
+.nav-center,
+.nav-right {
+  list-style: none;
+  display: flex;
+  align-items: flex-end;
+  font-family: cursive;
+  color: white;
+  font-size: larger;
+}
+
+.nav-center li,
+.nav-right li {
+  height: 80px;
+  display: flex;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav li.hover {
+  background-color: #5648d2;
+}
+
+.flyout-menu {
+  position: absolute;
+  background-color: #7d72cd;
+  border: 1px solid;
+}

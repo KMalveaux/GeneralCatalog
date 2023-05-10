@@ -1,0 +1,96 @@
+.PictureSection {
+  margin: 20px;
+  margin-top: 30px;
+  width: 100px;
+  height: 50vh;
+  border-style: solid;
+  border-width: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+}
+
+.PicturePlaceholder {
+  width: 100%;
+  height: 80%;
+  margin-top: 15px;
+  background-color: gray;
+}
+
+.submitPicture {
+  padding: 5px;
+  margin: 10px;
+  margin-top: 20px;
+  background-color: rgb(191, 172, 226);
+  border: 2px solid transparent;
+  color: white;
+  font-family: cursive;
+  font-size: large;
+  font-weight: bold;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.submitPicture .button {
+  background-color: rgb(191, 172, 226);
+  border: 2px solid transparent;
+  color: white;
+  font-family: cursive;
+  font-size: large;
+  font-weight: bold;
+  min-width: 90px;
+  height: 70px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 1.25rem;
+  margin-left: 30px;
+}
+
+.submitPicture:hover {
+  background-color: #7d72cd;
+}
+
+input[type="text"] {
+  padding: 8px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.create-listing-bttn {
+  background-color: rgb(191, 172, 226);
+  border: 2px solid transparent;
+  color: white;
+  font-family: cursive;
+  font-size: large;
+  font-weight: bold;
+  min-width: 90px;
+  height: 70px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 1.25rem;
+  margin-left: 30px;
+}
+
+.create-listing-bttn:hover {
+  background-color: #7d72cd;
+  color: white;
+  cursor: pointer;
+}
+
+.create-listing-label {
+  font-size: x-large;
+  font-family: cursive;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-left: 30px;
+}
+
+.inputBox-labels {
+  font-size: large;
+  font-family: cursive;
+  font-weight: bold;
+}

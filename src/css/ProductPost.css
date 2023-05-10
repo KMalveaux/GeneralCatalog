@@ -1,0 +1,69 @@
+.productContainer {
+  width: 100%;
+  height: 55vh;
+  margin: 0.5rem;
+  border-style: solid;
+  border-width: 2px;
+  flex-shrink: 0;
+  border-radius: 25px;
+  padding: 0.1rem;
+  position: relative;
+  box-sizing: border-box;
+  display: flexbox;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 25px;
+  font-family: cursive;
+  font-weight: 400;
+  bottom: 18%;
+  left: 5%;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.price {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  font-size: 15px;
+  font-family: cursive;
+}
+
+.description{
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 10px;
+}
+
+.image {
+  max-height: 80%;
+  max-width: 80%;
+  position: relative;
+  left: 11%;
+  padding: 10px;
+  border-radius: 10%;
+}
+
+.addToCartButton {
+  background-color: rgb(191, 172, 226);
+  border: 2px solid transparent;
+  color: white;
+  font-family: cursive;
+  min-width: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 15px;
+  cursor: pointer;
+
+}
+
+.addToCartButton:hover {
+  background-color: #7d72cd;
+}

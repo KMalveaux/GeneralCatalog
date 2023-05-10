@@ -1,0 +1,15 @@
+.accountNavButton {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.flyoutAccountButton {
+  display: block;
+  background-color: rgb(113, 107, 189);
+  font-size: 0.875rem /* 14px */;
+}
+
+.flyoutLoginSignupBttns:hover {
+  background-color: #7d72cd;
+  cursor: pointer;
+}
