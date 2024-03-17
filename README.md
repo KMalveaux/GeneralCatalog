@@ -1,5 +1,3 @@
-# wizardcatalog
-
 Group Members:
 
 • Kaylin Archuleta - Backend Database Developer
